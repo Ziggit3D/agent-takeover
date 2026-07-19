@@ -1,1 +1,1 @@
-Compile and verify the Android test package.
+Compile, capture diagnostics, and verify the Android test package.
