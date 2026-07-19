@@ -50,7 +50,22 @@ jobs:
 
       - name: Build debug APK
         working-directory: flockkeeper-apk-build
-        run: gradle --no-daemon --stacktrace assembleDebug
+        shell: bash
+        run: |
+          set +e
+          gradle --no-daemon --stacktrace assembleDebug > ../flockkeeper-build.log 2>&1
+          status=$?
+          tail -n 250 ../flockkeeper-build.log
+          exit $status
+
+      - name: Upload build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Flockkeeper-Build-Log
+          path: flockkeeper-build.log
+          if-no-files-found: warn
+          retention-days: 7
 
       - name: Verify APK
         run: |
