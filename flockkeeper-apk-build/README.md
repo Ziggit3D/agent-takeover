@@ -1,0 +1,1 @@
+Temporary Android build source for the Flockkeeper testing APK. This directory is isolated from the main project code.
