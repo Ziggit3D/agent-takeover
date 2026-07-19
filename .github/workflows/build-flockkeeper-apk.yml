@@ -45,6 +45,9 @@ jobs:
         run: |
           cat flockkeeper-apk-build/source/chunk-*.b64 | base64 --decode > /tmp/flockkeeper-source.tar.gz
           tar -xzf /tmp/flockkeeper-source.tar.gz -C flockkeeper-apk-build
+          if [ -f flockkeeper-apk-build/source/app-build.gradle ]; then
+            cp flockkeeper-apk-build/source/app-build.gradle flockkeeper-apk-build/app/build.gradle
+          fi
           test -f flockkeeper-apk-build/app/src/main/java/com/flockkeeper/app/MainActivity.java
           test -f flockkeeper-apk-build/app/src/main/assets/www/app.js
 
