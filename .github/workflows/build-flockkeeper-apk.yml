@@ -6,6 +6,10 @@ on:
     paths:
       - 'flockkeeper-apk-build/source/**'
       - '.github/workflows/build-flockkeeper-apk.yml'
+  pull_request:
+    paths:
+      - 'flockkeeper-apk-build/source/**'
+      - '.github/workflows/build-flockkeeper-apk.yml'
 
 permissions:
   contents: read
